@@ -10,5 +10,5 @@ import java.io.File
  * For Java interop, we can use `@Throws(SomeException::class)` to make the Java compiler happy.
  */
 interface Importer {
-    fun importFile(file : File) : Document
+    fun importFile(file: File): Document
 }

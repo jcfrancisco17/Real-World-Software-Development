@@ -1,9 +1,9 @@
 package com.iteratrlearning.shu_book.chapter_06.web_adapter;
 
-import com.iteratrlearning.shu_book.chapter_06.database.DatabaseTwootRepository;
-import com.iteratrlearning.shu_book.chapter_06.database.DatabaseUserRepository;
 import com.iteratrlearning.shu_book.chapter_06.TwootRepository;
 import com.iteratrlearning.shu_book.chapter_06.Twootr;
+import com.iteratrlearning.shu_book.chapter_06.database.DatabaseTwootRepository;
+import com.iteratrlearning.shu_book.chapter_06.database.DatabaseUserRepository;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.DefaultServlet;
 import org.eclipse.jetty.servlet.ServletContextHandler;
@@ -43,7 +43,7 @@ public class TwootrServer extends WebSocketServer {
         context.setContextPath("/");
 
         ServletHolder staticContentServlet = new ServletHolder(
-            "staticContentServlet", DefaultServlet.class);
+                "staticContentServlet", DefaultServlet.class);
         staticContentServlet.setInitParameter("dirAllowed", "true");
         context.addServlet(staticContentServlet, "/");
 

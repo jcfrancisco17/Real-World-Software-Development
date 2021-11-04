@@ -34,7 +34,7 @@ class DocumentManagementSystem {
         return documents.toList()
     }
 
-    fun search(query: String) : List<Document> {
+    fun search(query: String): List<Document> {
         return documents.stream().filter(Query.parse(query)).toList()
     }
 }

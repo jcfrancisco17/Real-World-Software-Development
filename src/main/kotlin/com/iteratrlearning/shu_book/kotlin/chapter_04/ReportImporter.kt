@@ -12,7 +12,7 @@ class ReportImporter : Importer {
     override fun importFile(file: File): Document {
         val textFile = TextFile(file)
         textFile.addLineSuffix(NAME_PREFIX, PATIENT)
-        textFile.addLines(2, {false}, BODY)
+        textFile.addLines(2, { false }, BODY)
 
         val attributes = textFile.attributes
         attributes[TYPE] = "REPORT"

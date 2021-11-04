@@ -8,7 +8,7 @@ class Document(attributes: Map<String, String>) {
      */
     private val _attribute = attributes
 
-    fun getAttribute(attributeName: String) : String? {
+    fun getAttribute(attributeName: String): String? {
         return _attribute[attributeName]
     }
 

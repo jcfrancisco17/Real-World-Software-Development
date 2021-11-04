@@ -60,20 +60,20 @@ class WebSocketEndPoint implements ReceiverEndPoint {
     @Override
     public void onTwoot(final Twoot twoot) {
         webSocket.send(String.format(
-            "{\"cmd\":\"twoot\", \"user\":\"%s\", \"msg\":\"%s\"}",
-            twoot.getSenderId(),
-            twoot.getContent()));
+                "{\"cmd\":\"twoot\", \"user\":\"%s\", \"msg\":\"%s\"}",
+                twoot.getSenderId(),
+                twoot.getContent()));
     }
 
     private void sendPosition(final Position position) {
         webSocket.send(String.format(
-            "{\"cmd\":\"sent\", \"position\":%s}",
-            position.getValue()));
+                "{\"cmd\":\"sent\", \"position\":%s}",
+                position.getValue()));
     }
 
     private void sendStatusUpdate(final String status) {
         webSocket.send(String.format(
-            "{\"cmd\":\"statusUpdate\", \"status\":\"%s\"}",
-            status));
+                "{\"cmd\":\"statusUpdate\", \"status\":\"%s\"}",
+                status));
     }
 }

@@ -14,6 +14,6 @@ class DatabaseConnection {
     }
 
     static Connection get() throws SQLException {
-        return DriverManager.getConnection("jdbc:hsqldb:db/mydatabase", "SA", "");
+        return DriverManager.getConnection("jdbc:hsqldb:mem:mydatabase", "SA", "");
     }
 }
