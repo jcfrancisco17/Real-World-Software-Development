@@ -11,7 +11,7 @@ class InspectorTest : FunSpec({
 
         val jobTitleCondition = JobTitleCondition()
 
-        val inspector = Inspector(jobTitleCondition)
+        val inspector = Inspector(arrayOf(jobTitleCondition))
         val diagnosis: List<Diagnosis> = inspector.inspect(facts)
 
         diagnosis shouldHaveSize 1

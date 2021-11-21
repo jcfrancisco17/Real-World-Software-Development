@@ -8,14 +8,15 @@ import java.sql.Connection
 import java.sql.SQLException
 
 class DatabaseUserRepository : UserRepository {
+    companion object {
+        private const val ID = 1
+        private const val PASSWORD = 2
+        private const val SALT = 3
+        private const val POSITION = 4
 
-    private val ID = 1
-    private val PASSWORD = 2
-    private val SALT = 3
-    private val POSITION = 4
-
-    private val FOLLOWER = 1
-    private val USER_TO_FOLLOW = 2
+        private const val FOLLOWER = 1
+        private const val USER_TO_FOLLOW = 2
+    }
 
     //no need for lateinit because these got initialized in the init block
     private var statementRunner: StatementRunner

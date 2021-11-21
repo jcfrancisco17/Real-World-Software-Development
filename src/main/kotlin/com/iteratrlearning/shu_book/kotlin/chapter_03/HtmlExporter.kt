@@ -1,5 +1,6 @@
 package com.iteratrlearning.shu_book.kotlin.chapter_03
 
+@Suppress("unused")
 class HtmlExporter : Exporter {
     override fun export(summaryStatistics: SummaryStatistics): String {
         return """

@@ -31,6 +31,8 @@ class Twootr(val twootRepository: TwootRepository, val userRepository: UserRepos
         val userId = user.id
         val twoot = twootRepository.add(id, userId, content)
 
+//        user.followers().
+
         user.followers()
             .filter { it.isLoggedOn() }
             .forEach { follower ->

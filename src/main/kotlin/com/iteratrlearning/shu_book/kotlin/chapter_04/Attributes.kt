@@ -5,12 +5,12 @@ package com.iteratrlearning.shu_book.kotlin.chapter_04
  * is the equivalent.
  */
 object Attributes {
-    val PATH = "path";
-    val PATIENT = "patient";
-    val ADDRESS = "address";
-    val BODY = "body";
-    val WIDTH = "width";
-    val HEIGHT = "height";
-    val TYPE = "type";
-    val AMOUNT = "amount";
+    const val PATH = "path";
+    const val PATIENT = "patient";
+    const val ADDRESS = "address";
+    const val BODY = "body";
+    const val WIDTH = "width";
+    const val HEIGHT = "height";
+    const val TYPE = "type";
+    const val AMOUNT = "amount";
 }

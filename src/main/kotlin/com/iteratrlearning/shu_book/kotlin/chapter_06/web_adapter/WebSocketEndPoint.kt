@@ -4,13 +4,13 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.iteratrlearning.shu_book.kotlin.chapter_06.*
 import org.java_websocket.WebSocket
 
-class WebSockerEndPoint(private val twootr: Twootr, private val webSocket: WebSocket) : ReceiverEndpoint {
+class WebSocketEndPoint(private val twootr: Twootr, private val webSocket: WebSocket) : ReceiverEndpoint {
 
     private var senderEndPoint: SenderEndPoint? = null
 
     companion object {
         private val mapper = ObjectMapper()
-        private val CMD = "cmd"
+        private const val CMD = "cmd"
     }
 
     override fun onTwoot(twoot: Twoot) {
@@ -23,8 +23,7 @@ class WebSockerEndPoint(private val twootr: Twootr, private val webSocket: WebSo
 
     fun onMessage(message: String) {
         val json = mapper.readTree(message)
-        val cmd = json.get(CMD).asText()
-        when (cmd) {
+        when (json.get(CMD).asText()) {
             "logon" -> {
                 val userName = json.get("userName").asText()
                 val password = json.get("password").asText()

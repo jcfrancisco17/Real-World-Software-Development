@@ -23,8 +23,8 @@ class TwootrServer(address: InetSocketAddress) : WebSocketServer(address, 1) {
 
 
     companion object {
-        const val STATIC_PORT = 8000
-        const val WEBSOCKET_PORT = 9000
+        private const val STATIC_PORT = 8000
+        private const val WEBSOCKET_PORT = 9000
 
         private const val USER_NAME = "Joe"
         private const val PASSWORD = "ahc5ez2aiV"
@@ -56,7 +56,7 @@ class TwootrServer(address: InetSocketAddress) : WebSocketServer(address, 1) {
 
     private val twootRepository = DatabaseTwootRepository()
     private val twootr = Twootr(twootRepository, DatabaseUserRepository())
-    private val socketToEndPoint = mutableMapOf<WebSocket, WebSockerEndPoint>()
+    private val socketToEndPoint = mutableMapOf<WebSocket, WebSocketEndPoint>()
 
     init {
         twootr.onRegisterUser(USER_NAME, PASSWORD)
@@ -64,7 +64,7 @@ class TwootrServer(address: InetSocketAddress) : WebSocketServer(address, 1) {
     }
 
     override fun onOpen(webSocket: WebSocket?, clientHandshake: ClientHandshake?) {
-        socketToEndPoint[webSocket!!] = WebSockerEndPoint(twootr, webSocket)
+        socketToEndPoint[webSocket!!] = WebSocketEndPoint(twootr, webSocket)
     }
 
     override fun onClose(webSocket: WebSocket?, i: Int, s: String?, b: Boolean) {

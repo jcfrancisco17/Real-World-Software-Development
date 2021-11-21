@@ -1,7 +1,6 @@
 package com.iteratrlearning.shu_book.kotlin.chapter_03
 
 import java.time.Month
-import java.util.stream.Collectors.toList
 
 class BankStatementProcessor(private val bankTransactions: List<BankTransaction>) {
 
@@ -15,27 +14,29 @@ class BankStatementProcessor(private val bankTransactions: List<BankTransaction>
     }
 
     fun calculateTotalAmount(): Double {
-        return bankTransactions.stream().mapToDouble { it.amount }.sum()
+        return bankTransactions.sumOf { it.amount }
     }
 
     fun calculateTotalInMonth(month: Month): Double {
-        return bankTransactions.stream().filter { month == it.date.month }.mapToDouble { it.amount }.sum()
+        return bankTransactions.filter { month == it.date.month }.sumOf { it.amount }
     }
 
     fun calculateTotalForCategory(category: String): Double {
-        return bankTransactions.stream().filter { category == it.description }.mapToDouble { it.amount }.sum()
+        return bankTransactions.filter { category == it.description }.sumOf { it.amount }
     }
 
+    @Suppress("unused")
     fun findTransactionsGreaterThanEquals(amount: Int): List<BankTransaction> {
         return findTransactions { it.amount >= amount }
     }
 
+    @Suppress("unused")
     fun findTransactionsInMonth(month: Month): List<BankTransaction> {
-        return bankTransactions.stream().filter { it.date.month == month }.collect(toList())
+        return bankTransactions.filter { it.date.month == month }.toList()
     }
 
     fun findTransactions(bankTransactionFilter: BankTransactionFilter): List<BankTransaction> {
-        return bankTransactions.stream().filter { bankTransactionFilter.test(it) }.collect(toList())
+        return bankTransactions.filter { bankTransactionFilter.test(it) }.toList()
     }
 
 

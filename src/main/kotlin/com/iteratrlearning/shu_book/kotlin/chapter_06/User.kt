@@ -1,14 +1,16 @@
 package com.iteratrlearning.shu_book.kotlin.chapter_06
 
-import java.util.stream.Stream
-
 class User(val id: String, val password: ByteArray, val salt: ByteArray, var lastSeenPosition: Position) {
     private var receiverEndpoint: ReceiverEndpoint? = null
     private val following = mutableSetOf<String>()
     private val followers = mutableSetOf<User>()
 
-    fun followers(): Stream<User> {
-        return followers.stream()
+//    fun followers(): Stream<User> {
+//        return followers.stream()
+//    }
+
+    fun followers(): Sequence<User> {
+        return followers.asSequence()
     }
 
     fun following(): Set<String> {

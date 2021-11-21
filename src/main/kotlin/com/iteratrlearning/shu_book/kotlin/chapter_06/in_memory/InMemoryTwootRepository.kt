@@ -7,8 +7,8 @@ import com.iteratrlearning.shu_book.kotlin.chapter_06.TwootRepository
 import java.util.function.Consumer
 
 class InMemoryTwootRepository : TwootRepository {
-    val twoots = mutableListOf<Twoot>()
-    var currentPosition = Position.INITIAL_POSITION
+    private val twoots = mutableListOf<Twoot>()
+    private var currentPosition = Position.INITIAL_POSITION
 
     override fun add(id: String, userId: String, content: String): Twoot {
         currentPosition = currentPosition.next()

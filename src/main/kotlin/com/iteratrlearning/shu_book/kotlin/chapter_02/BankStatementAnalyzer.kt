@@ -6,8 +6,9 @@ import java.time.Month
 
 class BankStatementAnalyzer {
 
-    @JvmField
-    val RESOURCES = "src/main/resources/"
+    companion object {
+        private const val RESOURCES = "src/main/resources/"
+    }
 
     fun analyze(fileName: String, bankStatementParser: BankStatementParser) {
 

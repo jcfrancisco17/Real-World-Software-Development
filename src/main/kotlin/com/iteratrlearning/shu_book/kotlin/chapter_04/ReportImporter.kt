@@ -7,7 +7,9 @@ import java.io.File
 
 class ReportImporter : Importer {
 
-    val NAME_PREFIX = "Patient: "
+    companion object {
+        private const val NAME_PREFIX = "Patient: "
+    }
 
     override fun importFile(file: File): Document {
         val textFile = TextFile(file)

@@ -14,8 +14,8 @@ import java.util.function.Consumer
 
 
 private lateinit var repository: TwootRepository
-lateinit var callback: Consumer<Twoot>
-val twootQuery = TwootQuery()
+private lateinit var callback: Consumer<Twoot>
+private val twootQuery = TwootQuery()
 
 class TwootRepositoryTest : FunSpec({
 

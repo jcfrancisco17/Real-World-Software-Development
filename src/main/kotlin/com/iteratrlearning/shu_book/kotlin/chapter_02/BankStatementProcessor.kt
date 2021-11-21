@@ -5,14 +5,14 @@ import java.time.Month
 class BankStatementProcessor(private val bankTransactions: List<BankTransaction>) {
 
     fun calculateTotalAmount(): Double {
-        return bankTransactions.stream().mapToDouble { it.amount }.sum()
+        return bankTransactions.sumOf { (it.amount) }
     }
 
     fun calculateTotalInMonth(month: Month): Double {
-        return bankTransactions.stream().filter { month == it.date.month }.mapToDouble { it.amount }.sum()
+        return bankTransactions.filter { month == it.date.month }.sumOf { it.amount }
     }
 
     fun calculateTotalForCategory(category: String): Double {
-        return bankTransactions.stream().filter { category == it.description }.mapToDouble { it.amount }.sum()
+        return bankTransactions.filter { category == it.description }.sumOf { it.amount }
     }
 }

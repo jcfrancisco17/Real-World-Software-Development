@@ -7,11 +7,11 @@ import kotlin.text.Charsets.UTF_16
 
 object KeyGenerator {
 
-    private val SCRYPT_COST = 16384
-    private val SCRYPT_BLOCK_SIZE = 8
-    private val SCRYPT_PARALLELISM = 1
-    private val KEY_LENGTH = 20
-    private val SALT_LENGTH = 16
+    private const val SCRYPT_COST = 16384
+    private const val SCRYPT_BLOCK_SIZE = 8
+    private const val SCRYPT_PARALLELISM = 1
+    private const val KEY_LENGTH = 20
+    private const val SALT_LENGTH = 16
 
     private val secureRandom = SecureRandom()
 

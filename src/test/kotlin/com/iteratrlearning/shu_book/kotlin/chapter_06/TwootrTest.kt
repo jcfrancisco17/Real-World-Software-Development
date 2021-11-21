@@ -19,9 +19,9 @@ private lateinit var twootRepository: InMemoryTwootRepository
 private lateinit var userRepository: InMemoryUserRepository
 private lateinit var endPoint: SenderEndPoint
 
-class TwootrTest : FunSpec({
+private val POSITION_1 = Position(0)
 
-    val POSITION_1 = Position(0)
+class TwootrTest : FunSpec({
 
     beforeEach {
         receiverEndPoint = mockk()
@@ -47,7 +47,7 @@ class TwootrTest : FunSpec({
     }
 
     test("should not authenticate unknown user") {
-        val senderEndPoint = twootr.onLogon(NOT_A_USER, TestData.PASSWORD, receiverEndPoint)
+        val senderEndPoint = twootr.onLogon(NOT_A_USER, PASSWORD, receiverEndPoint)
         senderEndPoint shouldBe null
     }
 

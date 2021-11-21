@@ -2,7 +2,7 @@ package com.iteratrlearning.shu_book.kotlin.chapter_05
 
 class Diagnosis(
     val facts: Facts,
-    val conditionalAction: ConditionalAction,
+    private val conditionalAction: ConditionalAction,
     val isPositive: Boolean
 ) {
 

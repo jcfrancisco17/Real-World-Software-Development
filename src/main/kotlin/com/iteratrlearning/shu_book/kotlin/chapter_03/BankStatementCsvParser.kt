@@ -1,16 +1,10 @@
 package com.iteratrlearning.shu_book.kotlin.chapter_03
 
-import java.util.stream.Collectors.toList
-
 
 class BankStatementCsvParser : BankStatementParser {
 
     override fun parseLinesFrom(lines: List<String>): List<BankTransaction> {
-        val bankTransactions = lines.stream().map {
-            parseFrom(it)
-        }.collect(toList())
-
-        return bankTransactions
+        return lines.map { parseFrom(it) }.toList()
     }
 
     override fun parseFrom(line: String): BankTransaction {

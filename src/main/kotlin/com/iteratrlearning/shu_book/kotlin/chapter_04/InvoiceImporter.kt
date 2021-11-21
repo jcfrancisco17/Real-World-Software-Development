@@ -6,8 +6,11 @@ import com.iteratrlearning.shu_book.kotlin.chapter_04.Attributes.TYPE
 import java.io.File
 
 class InvoiceImporter : Importer {
-    val NAME_PREFIX = "Dear "
-    val AMOUNT_PREFIX = "Amount: "
+
+    companion object {
+        private const val NAME_PREFIX = "Dear "
+        private const val AMOUNT_PREFIX = "Amount: "
+    }
 
     override fun importFile(file: File): Document {
         val textFile = TextFile(file)

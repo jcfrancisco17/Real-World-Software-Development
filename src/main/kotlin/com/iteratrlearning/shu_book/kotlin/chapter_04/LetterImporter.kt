@@ -8,7 +8,9 @@ import java.io.File
 
 class LetterImporter() : Importer {
 
-    private val NAME_PREFIX = "Dear "
+    companion object {
+        private const val NAME_PREFIX = "Dear "
+    }
 
     override fun importFile(file: File): Document {
         val textFile = TextFile(file)

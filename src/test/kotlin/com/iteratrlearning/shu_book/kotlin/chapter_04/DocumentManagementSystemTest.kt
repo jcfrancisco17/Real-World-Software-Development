@@ -1,7 +1,6 @@
 package com.iteratrlearning.shu_book.kotlin.chapter_04
 
 import com.iteratrlearning.shu_book.chapter_04.Attributes
-import com.iteratrlearning.shu_book.chapter_04.DocumentManagementSystemTest
 import com.iteratrlearning.shu_book.kotlin.chapter_04.Attributes.ADDRESS
 import com.iteratrlearning.shu_book.kotlin.chapter_04.Attributes.AMOUNT
 import com.iteratrlearning.shu_book.kotlin.chapter_04.Attributes.BODY
@@ -15,20 +14,20 @@ import io.kotest.matchers.shouldBe
 import java.io.File
 import java.io.FileNotFoundException
 
-val JOE_BLOGGS = "Joe Bloggs"
+private const val JOE_BLOGGS = "Joe Bloggs"
+private val RESOURCES = "src" + File.separator + "test" + File.separator + "resources" + File.separator
+private val LETTER = RESOURCES + "patient.letter"
+private val REPORT = RESOURCES + "patient.report"
+private val XRAY = RESOURCES + "xray.jpg"
+private val INVOICE = RESOURCES + "patient.invoice"
+
 var system = DocumentManagementSystem()
 
 class DocumentManagementSystemTest : FunSpec({
 
-    val RESOURCES = "src" + File.separator + "test" + File.separator + "resources" + File.separator
-    val LETTER = RESOURCES + "patient.letter"
-    val REPORT = RESOURCES + "patient.report"
-    val XRAY = RESOURCES + "xray.jpg"
-    val INVOICE = RESOURCES + "patient.invoice"
-
     test("should import file") {
         system.importFile(LETTER)
-        val documents = onlyDocument()
+        onlyDocument()
     }
 
     test("should import letter attributes") {
@@ -43,13 +42,13 @@ class DocumentManagementSystemTest : FunSpec({
                     "Westminster\n" +
                     "London\n" +
                     "United Kingdom"
-        );
+        )
         assertAttributeEquals(
             document, BODY,
             "We are writing to you to confirm the re-scheduling of your appointment\n" +
                     "with Dr. Avaj from 29th December 2016 to 5th January 2017."
-        );
-        assertTypeIs("LETTER", document);
+        )
+        assertTypeIs("LETTER", document)
     }
 
     test("should import report attributes") {

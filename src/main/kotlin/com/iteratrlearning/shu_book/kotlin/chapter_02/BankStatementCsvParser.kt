@@ -2,12 +2,12 @@ package com.iteratrlearning.shu_book.kotlin.chapter_02
 
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import java.util.stream.Collectors.toList
 
 class BankStatementCsvParser : BankStatementParser {
 
-    @JvmField
-    val DATE_PATTERN: DateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+    companion object {
+        private val DATE_PATTERN: DateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+    }
 
     override fun parseFrom(line: String): BankTransaction {
         val columns = line.split(",")
@@ -20,11 +20,9 @@ class BankStatementCsvParser : BankStatementParser {
     }
 
     override fun parseLinesFrom(lines: List<String>): List<BankTransaction> {
-        val bankTransactions = lines.stream().map {
+        return lines.map {
             parseFrom(it)
-        }.collect(toList())
-
-        return bankTransactions
+        }.toList()
     }
 
 }

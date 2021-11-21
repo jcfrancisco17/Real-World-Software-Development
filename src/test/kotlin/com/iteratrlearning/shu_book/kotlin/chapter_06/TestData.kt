@@ -2,15 +2,15 @@ package com.iteratrlearning.shu_book.kotlin.chapter_06
 
 object TestData {
 
-    val USER_ID = "Joe"
-    val OTHER_USED_ID = "John"
-    val NOT_A_USER = "Jack"
+    const val USER_ID = "Joe"
+    const val OTHER_USED_ID = "John"
+    const val NOT_A_USER = "Jack"
 
-    val TWOOT = "Hello World!"
-    val TWOOT_2 = "Bye World!"
+    const val TWOOT = "Hello World!"
+    const val TWOOT_2 = "Bye World!"
 
+    const val PASSWORD = "ahc5ez"
     val SALT = KeyGenerator.newSalt()
-    val PASSWORD = "ahc5ez"
     val PASSWORD_BYTES = KeyGenerator.hash(PASSWORD, SALT)
 
     fun twootAt(id: String, position: Position): Twoot {

@@ -2,7 +2,6 @@ package com.iteratrlearning.shu_book.kotlin.chapter_06
 
 class SenderEndPoint(private val user: User, private val twootr: Twootr) {
 
-
     fun onFollow(userIdToFollow: String): FollowStatus {
         return twootr.onFollow(user, userIdToFollow)
     }

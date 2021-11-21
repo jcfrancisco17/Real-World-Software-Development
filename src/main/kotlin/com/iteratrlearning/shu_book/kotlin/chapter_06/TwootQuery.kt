@@ -2,10 +2,8 @@ package com.iteratrlearning.shu_book.kotlin.chapter_06
 
 class TwootQuery {
 
-    var inUsers = mutableSetOf<String>()
-        private set
+    val inUsers = mutableSetOf<String>()
     lateinit var lastSeenPosition: Position
-        private set
 
     fun inUsers(inUsers: Set<String>): TwootQuery {
         this.inUsers.addAll(inUsers)
